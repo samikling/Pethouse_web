@@ -1,0 +1,53 @@
+﻿@page
+@model PethouseWeb.Pages.Treatments.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Grooming</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Grooming.Groomname" class="control-label"></label>
+                <input asp-for="Grooming.Groomname" class="form-control" />
+                <span asp-validation-for="Grooming.Groomname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grooming.GroomDate" class="control-label"></label>
+                <input asp-for="Grooming.GroomDate" class="form-control" />
+                <span asp-validation-for="Grooming.GroomDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grooming.GroomExpDate" class="control-label"></label>
+                <input asp-for="Grooming.GroomExpDate" class="form-control" />
+                <span asp-validation-for="Grooming.GroomExpDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grooming.Comments" class="control-label"></label>
+                <input asp-for="Grooming.Comments" class="form-control" />
+                <span asp-validation-for="Grooming.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grooming.PetId" class="control-label"></label>
+                <select asp-for="Grooming.PetId" class ="form-control" asp-items="ViewBag.PetId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

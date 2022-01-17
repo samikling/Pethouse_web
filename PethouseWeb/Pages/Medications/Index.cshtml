@@ -1,0 +1,54 @@
+﻿@page
+@model PethouseWeb.Pages.Medications.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Medication[0].Medname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medication[0].MedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medication[0].MedExpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medication[0].Pet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Medication) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedExpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.PetId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MedId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MedId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MedId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

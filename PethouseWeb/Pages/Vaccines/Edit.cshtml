@@ -1,0 +1,50 @@
+﻿@page
+@model PethouseWeb.Pages.Vaccines.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vaccine</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vaccine.VacId" />
+            <div class="form-group">
+                <label asp-for="Vaccine.Vacname" class="control-label"></label>
+                <input asp-for="Vaccine.Vacname" class="form-control" />
+                <span asp-validation-for="Vaccine.Vacname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccine.VacDate" class="control-label"></label>
+                <input asp-for="Vaccine.VacDate" class="form-control" />
+                <span asp-validation-for="Vaccine.VacDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccine.VacExpDate" class="control-label"></label>
+                <input asp-for="Vaccine.VacExpDate" class="form-control" />
+                <span asp-validation-for="Vaccine.VacExpDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccine.PetId" class="control-label"></label>
+                <select asp-for="Vaccine.PetId" class="form-control" asp-items="ViewBag.PetId"></select>
+                <span asp-validation-for="Vaccine.PetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

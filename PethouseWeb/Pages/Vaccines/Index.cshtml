@@ -1,0 +1,54 @@
+﻿@page
+@model PethouseWeb.Pages.Vaccines.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaccine[0].Vacname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaccine[0].VacDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaccine[0].VacExpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaccine[0].Pet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vaccine) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacExpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.PetId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VacId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VacId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VacId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

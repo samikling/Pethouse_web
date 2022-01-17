@@ -1,0 +1,66 @@
+﻿@page
+@model PethouseWeb.Pages.Pets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Petname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Breed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].Race)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pet) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Petname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed.BreedId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Race.RaceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PetId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PetId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PetId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

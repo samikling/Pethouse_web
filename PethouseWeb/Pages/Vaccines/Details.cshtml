@@ -1,0 +1,43 @@
+﻿@page
+@model PethouseWeb.Pages.Vaccines.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vaccine</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccine.Vacname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccine.Vacname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccine.VacDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccine.VacDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccine.VacExpDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccine.VacExpDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccine.Pet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccine.Pet.PetId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vaccine.VacId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
